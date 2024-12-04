@@ -1,0 +1,123 @@
+Project Outline: To-Do List Application
+
+1. Define Requirements
+   - Basic Functionality:
+     - The application should allow users to:
+       - Add a new to-do item.
+       - Mark a to-do item as completed.
+       - Remove a to-do item.
+       - View all to-do items.
+   - Advanced Features (Optional):
+     - Persist the to-do list to a file (so data is saved between application runs).
+     - Allow users to set priorities for tasks (e.g., High, Medium, Low).
+     - Allow users to set due dates.
+     - Search for tasks based on name or status (completed or pending).
+     - Sort tasks by priority, date, or name.
+
+2. High-Level Design
+   - Class Structure:
+     - Main Class (ToDoListApp): This will be the entry point of the application. It will manage the flow of the application and interact with other components.
+     - To-Do Item Class (ToDoItem): This represents an individual to-do item. It will hold details such as the task name, description, due date, priority, and completion status.
+     - To-Do List Class (ToDoList): This will manage the collection of to-do items. It will provide methods to add, remove, mark as completed, and view tasks.
+
+   - Data Structures:
+     - Use an ArrayList or LinkedList to store the to-do items. This will allow dynamic resizing of the list and is easy to work with.
+     - You might use a HashMap if you want to map tasks to specific priorities or due dates.
+
+3. Detailed Design
+   Classes and Methods
+
+1. ToDoItem Class
+   - Attributes:
+     - String taskName: Name of the task.
+     - String description: Description of the task (optional).
+     - boolean isCompleted: Whether the task is marked as completed.
+     - String priority: Task priority (could be Low, Medium, or High).
+     - LocalDate dueDate: Optional due date (use LocalDate from Java's java.time package).
+
+   - Methods:
+     - String getTaskName(): Returns the task's name.
+     - String getDescription(): Returns the task's description.
+     - boolean isCompleted(): Returns if the task is completed.
+     - void markAsCompleted(): Marks the task as completed.
+     - String getPriority(): Returns the task's priority.
+     - LocalDate getDueDate(): Returns the task's due date.
+     - void setPriority(String priority): Sets the task's priority.
+     - void setDueDate(LocalDate dueDate): Sets the task's due date.
+
+2. ToDoList Class
+   - Attributes:
+     - ArrayList<ToDoItem> tasks: A list of ToDoItem objects.
+
+   - Methods:
+     - void addTask(ToDoItem task): Adds a new task to the list.
+     - void removeTask(String taskName): Removes a task by its name.
+     - void markTaskAsCompleted(String taskName): Marks a task as completed by its name.
+     - void viewTasks(): Displays all tasks in the list (consider sorting them by priority or due date).
+     - void sortTasks(): Sorts tasks (this could be by priority, name, or due date).
+     - ToDoItem findTask(String taskName): Finds a task by its name.
+     - void loadFromFile(String filename): Loads tasks from a file (optional feature).
+     - void saveToFile(String filename): Saves tasks to a file (optional feature).
+
+3. ToDoListApp (Main Class)
+   - Attributes:
+     - ToDoList toDoList: An instance of the ToDoList class that holds the tasks.
+
+   - Methods:
+     - void displayMenu(): Displays a simple menu for the user to interact with the app.
+     - void handleUserInput(): Handles the user's input (e.g., choosing options from the menu).
+     - void displayTasks(): Displays all the tasks from toDoList (might use viewTasks method from ToDoList).
+     - void addNewTask(): Asks the user for task details and adds it to the to-do list.
+     - void removeTask(): Allows the user to remove a task by name.
+     - void markTaskAsCompleted(): Allows the user to mark a task as completed.
+     - void saveData(): Optionally save the current state of the to-do list to a file.
+
+4. User Interface
+   - Text-based Interface (Console):
+     - Menu:
+       1. Add new task
+       2. View tasks
+       3. Mark task as completed
+       4. Remove task
+       5. Sort tasks
+       6. Save data to file
+       7. Load data from file
+       8. Exit
+
+     - The user can choose an option by entering a number, and the program will execute the corresponding action.
+
+   - Input/Output:
+     - Use Scanner to handle user input in the console.
+     - Display task details in a readable format, for example:
+       Task Name: "Buy groceries"
+       Description: "Get fruits and vegetables"
+       Priority: High
+       Due Date: 2024-12-05
+       Completed: false
+
+5. Optional Features (Advanced)
+   - File I/O: Use java.io.File or java.nio.file.Files to read and write tasks to a file (JSON, CSV, or plain text format).
+   - Sorting: Implement a sorting method to sort tasks by priority, due date, or completion status.
+   - Search Functionality: Add a search feature that allows users to find tasks by name or description.
+   - GUI: Create a graphical user interface using JavaFX or Swing if you're ready to dive into GUI programming.
+
+6. Testing
+   - Unit Testing: Write unit tests for individual methods using JUnit (e.g., test adding, removing, or completing tasks).
+   - Integration Testing: Test the entire application to ensure all components work together correctly.
+   - Edge Case Testing: Test edge cases such as:
+     - Adding a task with a long description.
+     - Removing a task that doesn’t exist.
+     - Marking a task as completed that is already completed.
+
+7. Implementation Steps
+   1. Step 1: Design and implement the ToDoItem class.
+      - Create the attributes (task name, description, status, etc.) and methods.
+   2. Step 2: Design and implement the ToDoList class.
+      - Implement methods to add, remove, and view tasks.
+   3. Step 3: Create the ToDoListApp class.
+      - Implement the console menu, handle user input, and interact with the ToDoList class.
+   4. Step 4: Test your application.
+      - Make sure all functionalities work and fix any bugs.
+   5. Step 5: Add advanced features (optional).
+      - Persist the tasks to a file, add search and sorting, and/or implement a GUI.
+

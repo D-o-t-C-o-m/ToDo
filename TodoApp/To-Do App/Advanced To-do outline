@@ -1,0 +1,117 @@
+Supplementary Outline: Advanced Features for To-Do List Application
+
+1. File I/O (Persisting Data to a File)
+   - Objective: Save and load to-do list data so that users’ tasks are preserved even after they close the application.
+
+   Key Concepts:
+   - Serialization: Save your ToDoList and ToDoItem objects to a file.
+   - Deserialization: Load the saved data back into your application when it starts.
+   - File Formats: Consider using plain text, JSON, or CSV formats to save and load data.
+
+   Design:
+   - Save Data:
+     - Create a saveToFile(String filename) method in the ToDoList class.
+     - Convert the ToDoItem objects into a format (e.g., text, JSON) and write to a file.
+   - Load Data:
+     - Create a loadFromFile(String filename) method in the ToDoList class.
+     - Read the file, parse the contents, and recreate the ToDoItem objects.
+
+   Steps:
+   - Implement toString() in the ToDoItem class to convert an object into a savable format (e.g., JSON).
+   - Use Java’s File class or java.nio.file.Files to read/write data.
+   - Optionally, use a library like Jackson or Gson for handling JSON if you go that route.
+
+2. Sorting Tasks
+   - Objective: Allow users to sort tasks based on different criteria such as priority, due date, or name.
+
+   Key Concepts:
+   - Comparable Interface: Implement this interface in the ToDoItem class for custom sorting.
+   - Comparator Interface: Alternatively, you can implement a separate Comparator class to handle different sorting strategies.
+   - Sorting Algorithms: Java’s Collections.sort() method or stream() can be used to sort tasks.
+
+   Design:
+   - Sort by Priority:
+     - Implement a method in the ToDoList class to sort tasks based on their priority.
+   - Sort by Due Date:
+     - Implement sorting by the task’s due date.
+   - Sort by Task Name:
+     - Sort alphabetically by the task name for easier organization.
+
+   Steps:
+   - Ensure that the ToDoItem class has a priority field that can be compared.
+   - Create a Comparator for each sorting method or implement Comparable in the ToDoItem class.
+   - Use the Collections.sort() or stream() method to sort tasks before displaying them.
+
+3. Search Functionality
+   - Objective: Enable users to search for tasks based on keywords, task name, or status (completed or pending).
+
+   Key Concepts:
+   - String Matching: Use basic string matching techniques to find tasks.
+   - Streams: Java Streams can be used to filter tasks based on specific criteria (e.g., completed, name).
+
+   Design:
+   - Search by Name:
+     - Create a searchByName(String name) method that returns a list of tasks matching the search keyword.
+   - Search by Status:
+     - Implement a searchByStatus(boolean isCompleted) method to find tasks that are either completed or pending.
+   - Search by Date or Priority:
+     - Create methods to search tasks by due date or priority level.
+
+   Steps:
+   - Use stream() to filter the tasks list based on search criteria.
+   - Prompt the user to input a search term (for name, status, etc.).
+   - Display the search results in a readable format.
+
+4. Task Prioritization and Due Dates
+   - Objective: Add functionality to set and manage task priorities (High, Medium, Low) and due dates.
+
+   Key Concepts:
+   - Enums: Use an enum to define task priorities (e.g., HIGH, MEDIUM, LOW).
+   - Date Management: Use LocalDate or LocalDateTime from Java’s java.time package to handle due dates.
+
+   Design:
+   - Priority:
+     - Use an enum type for the priority of tasks.
+     - Allow users to choose the priority when creating or updating a task.
+   - Due Date:
+     - Prompt users to enter a due date for each task.
+     - Use LocalDate to store the due date and ensure it’s formatted correctly.
+
+   Steps:
+   - Modify the ToDoItem class to include priority and due date.
+   - Provide an option to set the priority and due date when adding tasks.
+   - Display tasks sorted by priority or near due dates for effective management.
+
+5. Graphical User Interface (GUI) - Optional (Advanced)
+   - Objective: Create a simple GUI to enhance the user experience. This allows users to interact with the application using buttons, lists, and text fields instead of just the command line.
+
+   Key Concepts:
+   - JavaFX or Swing: Java provides GUI libraries like JavaFX and Swing to create windows, buttons, and other interface elements.
+   - Event Handling: GUI applications require event listeners to handle user input (button clicks, text entry).
+
+   Design:
+   - Main Window:
+     - Display a list of tasks in a scrollable pane or table.
+     - Provide buttons for adding, removing, and completing tasks.
+   - Task Management:
+     - Include input fields for task name, priority, and due date.
+     - Use dropdowns or radio buttons for selecting task priority.
+
+   Steps:
+   - Choose a GUI framework (JavaFX or Swing).
+   - Design a window that displays tasks, allows adding/removing tasks, and marks tasks as complete.
+   - Add interactivity (e.g., buttons for adding/removing tasks, text fields for input).
+   - Optionally, use FXML (JavaFX’s XML-based layout system) for better structure in JavaFX applications.
+
+6. Testing (Unit and Integration)
+   - Objective: Ensure that all parts of the application are working correctly and handle edge cases.
+
+   Key Concepts:
+   - JUnit: A framework for writing unit tests for individual methods and classes.
+   - Mocking: Use libraries like Mockito to mock dependencies for unit tests.
+   - Edge Case Testing: Handle cases such as adding a task with no name, removing a non-existent task, or saving an empty task list.
+
+   Steps:
+   - Write unit tests for critical methods (e.g., adding/removing tasks, sorting).
+   - Test the application for edge cases (e.g., saving an empty list, entering invalid data).
+   - If implementing file I/O, test that tasks are saved and loaded correctly.
