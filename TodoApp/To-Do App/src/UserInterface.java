@@ -25,14 +25,15 @@ public void start() {
 
 		} else if (command.equals("list") || command.equals("l")) {
 			if(todoList.size() == 0){
-				System.out.println("There are not tasks! (A)dd one now?");
+				System.out.println("There are no tasks! (A)dd one now?");
 			} else {
 				todoList.print();
 			}
 		} else if (command.equals("mark") || command.equals("m")) {
+				todoList.print();
 			System.out.print("Item to mark complete: ");
 			int number = Integer.valueOf(scanner.nextLine());
-
+			todoList.markComplete(number);
 		} else if (command.equals("remove") || command.equals("r")) {
 			System.out.print("Item to remove: ");
 			int number = Integer.valueOf(scanner.nextLine());
