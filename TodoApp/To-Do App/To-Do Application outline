@@ -3,10 +3,10 @@ Project Outline: To-Do List Application
 1. Define Requirements
    - Basic Functionality:
      - The application should allow users to:
-       - Add a new to-do item.
+       X Add a new to-do item.
        - Mark a to-do item as completed.
-       - Remove a to-do item.
-       - View all to-do items.
+       X Remove a to-do item.
+       X View all to-do items.
    - Advanced Features (Optional):
      - Persist the to-do list to a file (so data is saved between application runs).
      - Allow users to set priorities for tasks (e.g., High, Medium, Low).
