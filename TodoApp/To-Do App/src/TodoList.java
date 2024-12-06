@@ -18,12 +18,13 @@ public void add(String task){
 public void remove(int number){
 	this.list.remove(number-1);
 }
+
 public void markComplete(int taskNumber) {
 	if(this.list.isEmpty()) {
 		System.out.println("List is empty");
 	}else if  (taskNumber >= 0 && taskNumber < this.list.size()+1) {
 		taskNumber = taskNumber-1;
-		String task = this.list.get(taskNumber);
+		String task = this.list.get(taskNumber-1);
 		this.list.set(taskNumber, Utility.applyStrikethrough(task));
 	} else {
 		System.out.println("Invalid task number. Please enter a new command.");
