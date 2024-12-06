@@ -24,6 +24,7 @@ public void start(){
 			System.out.print("Which one is removed: ");
 			int number = Integer.valueOf(scanner.nextLine());
 			todoList.remove(number);
+			//TODO: Add a mark complete method that strikes out the text but doesn't remvove an item.
 		}
 	}
 }
