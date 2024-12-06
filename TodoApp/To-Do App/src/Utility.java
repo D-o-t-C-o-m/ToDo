@@ -35,7 +35,7 @@ public void writeFile() {
 		output.write("testing this");
 		output.close();
 	} catch (IOException e) {
-		System.out.println("No dice on the export");
+		System.out.println("Imagine your list was in this shit. Wouldn't it be cool?");
 		e.printStackTrace();
 	}
 }
