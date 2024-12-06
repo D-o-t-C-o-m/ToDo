@@ -7,6 +7,10 @@ public TodoList() {
 	this.list = new ArrayList();
 }
 
+public int size() {
+	return this.list.size();
+}
+
 public void add(String task){
 	this.list.add(task);
 }
