@@ -23,7 +23,12 @@ public void start() {
 			String task = scanner.nextLine();
 			this.todoList.add(task);
 
-		} else if (command.equals("list") || command.equals("l")) {
+		} else if (command.equals("export") || command.equals("e")) {
+			Utility utility = new Utility();
+			utility.createFile();
+
+	}
+	else if (command.equals("list") || command.equals("l")) {
 			if(todoList.size() == 0){
 				System.out.println("There are no tasks! (A)dd one now?");
 			} else {
@@ -34,6 +39,7 @@ public void start() {
 			System.out.print("Item to mark complete: ");
 			int number = Integer.valueOf(scanner.nextLine());
 			todoList.markComplete(number);
+
 		} else if (command.equals("remove") || command.equals("r")) {
 			System.out.print("Item to remove: ");
 			int number = Integer.valueOf(scanner.nextLine());
@@ -53,6 +59,7 @@ public void start() {
 			System.out.println("(M)ark a tasked completed");
 			System.out.println("(R)emove a task from the list");
 			System.out.println("(L)ist all tasks");
+			System.out.println("(E)xport the task list");
 			System.out.println("(C)lear all tasks from the list");
 			System.out.println("(Q)uit");
 
