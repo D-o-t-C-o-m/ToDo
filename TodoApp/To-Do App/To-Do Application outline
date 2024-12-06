@@ -4,7 +4,7 @@ Project Outline: To-Do List Application
    - Basic Functionality:
      - The application should allow users to:
        X Add a new to-do item.
-       - Mark a to-do item as completed.
+       X Mark a to-do item as completed.
        X Remove a to-do item.
        X View all to-do items.
    - Advanced Features (Optional):
