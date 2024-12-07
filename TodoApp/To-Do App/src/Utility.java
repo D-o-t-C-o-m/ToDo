@@ -30,12 +30,13 @@ public void createFile() {
 }
 
 public void writeFile() {
+	TodoList todoList = new TodoList();
 	try {
 		FileWriter output = new FileWriter(this.fileName+".txt");
-		output.write("testing this");
+		output.write(" ");
 		output.close();
 	} catch (IOException e) {
-		System.out.println("Imagine your list was in this shit. Wouldn't it be cool?");
+		System.out.println("it's fucked");
 		e.printStackTrace();
 	}
 }
