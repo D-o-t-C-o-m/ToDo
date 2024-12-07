@@ -12,7 +12,7 @@ this.fileName = "";
 }
 
 public void createFile() {
-	System.out.print("enter a file name");
+	System.out.print("enter a file name: ");
 	this.fileName = this.scanner.nextLine();
 	try {
 		File Todo = new File(this.fileName+".txt");
