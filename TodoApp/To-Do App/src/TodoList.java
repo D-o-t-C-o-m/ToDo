@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class TodoList {
-private ArrayList<String> list;
+private final ArrayList<String> list;
 
 public TodoList() {
-	this.list = new ArrayList();
+	this.list = new ArrayList<>();
 }
 
 public int size() {
@@ -35,7 +35,7 @@ public void print(){
 	int i = 1;
 	for(String task : this.list){
 		System.out.println(i+". "+task);
-		i++;;
+		i++;
 	}
 }
 

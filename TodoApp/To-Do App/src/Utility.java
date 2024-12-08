@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Utility {
-private Scanner scanner;
+private final Scanner scanner;
 private String fileName;
 public Utility() {
 this.scanner = new Scanner(System.in);
