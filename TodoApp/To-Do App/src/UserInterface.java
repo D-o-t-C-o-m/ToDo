@@ -34,7 +34,7 @@ public void start() {
 
 		} else if (command.equals("export") || command.equals("e")) {
 			Utility utility = new Utility();
-			utility.createFile();
+			utility.createFile(this.todoList);
 
 		} else if (command.equals("list") || command.equals("l")) {
 			if (this.todoList.size() == 0) {
