@@ -11,14 +11,14 @@ this.scanner = new Scanner(System.in);
 this.fileName = "";
 }
 
-public void createFile() {
+public void createFile(TodoList todolist) {
 	System.out.print("enter a file name: ");
 	this.fileName = this.scanner.nextLine();
 	try {
 		File Todo = new File(this.fileName+".txt");
 	    if (Todo.createNewFile()) {
 			System.out.println("File created: " + Todo.getName());
-			writeFile();
+			writeFile(todolist);
 		} else {
 			System.out.println("File already exists.");
 		}
@@ -29,11 +29,15 @@ public void createFile() {
 	}
 }
 
-public void writeFile() {
-	TodoList todoList = new TodoList();
+public void writeFile(TodoList todoList) {
+
 	try {
 		FileWriter output = new FileWriter(this.fileName+".txt");
-		output.write(" ");
+		for(int i = 0; i < todoList.size(); i++){
+			int n = i+1;
+			String itemNum = n+". ";
+			output.write(itemNum+todoList.getList().get(i) + "\n");
+		}
 		output.close();
 	} catch (IOException e) {
 		System.out.println("it's fucked");
