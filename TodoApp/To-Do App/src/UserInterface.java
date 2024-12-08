@@ -13,7 +13,7 @@ public UserInterface(TodoList todoList, Scanner scan) {
 
 public void start() {
 	System.out.println("===To Deux===");
-	System.out.println("(H)elp for commands");
+	System.out.println("To begin: (A)dd a task or (I)mport a previous List. (H)elp for commands");
 
 	while (true) {
 
@@ -44,16 +44,20 @@ public void start() {
 			}
 
 		} else if (command.equals("mark") || command.equals("m")) {
-			this.todoList.print();
-			int number = 0;
-			System.out.print("Please enter a number: ");
-			if (this.scanner.hasNextInt()) {
-				number = scanner.nextInt();
-				this.scanner.nextLine();
-				if (number <= 0 || number > this.todoList.size()) {
-					System.out.println("Invalid number!");
-				} else {
-					this.todoList.markComplete(number);
+			if (this.todoList.size() == 0) {
+				System.out.println("There are no tasks! (A)dd one now?");
+			}else {
+				this.todoList.print();
+				int number = 0;
+				System.out.print("Please enter a number: ");
+				if (this.scanner.hasNextInt()) {
+					number = scanner.nextInt();
+					this.scanner.nextLine();
+					if (number <= 0 || number > this.todoList.size()) {
+						System.out.println("Invalid number!");
+					} else {
+						this.todoList.markComplete(number);
+					}
 				}
 			}
 
