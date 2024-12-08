@@ -38,5 +38,9 @@ public void print(){
 		i++;;
 	}
 }
+
+public ArrayList<String> getList(){
+	return this.list;
+}
 }
 	 
